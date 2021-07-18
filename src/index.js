@@ -5,21 +5,40 @@ import countryCardTemplate from './templates/country-card.hbs';
 import countryListTemplate from './templates/country-list.hbs';
 
 
-// refs.list.insertAdjacentHTML('beforeend', )
 
-fetch('https://restcountries.eu/rest/v2/name/canada')
+// function fetchCountries(name) {
+//    return  fetch(`https://restcountries.eu/rest/v2/name/${name}`)
+//         .then(response => {
+//         return response.json();
+//     })
+// }
+
+refs.input.addEventListener('input', onSearch);
+
+function fetchCountries(name) {
+   return  fetch(`https://restcountries.eu/rest/v2/name/${name}?fields=flag;name;capital;population;languages`)
         .then(response => {
         return response.json();
     })
-    .then(name => {
-        console.log(name);
-        const markup = countryCardTemplate(name);
+}
+
+function renderCountryCard(name) {
+      const markup = countryCardTemplate(name);
         console.log(markup);
         refs.card.innerHTML = markup;
-    })
-    .catch(error => {
-        console.log(error);
-    }) 
+ }
+
+function onSearch(event) {
+    event.preventDefault;
+    fetchCountries('kazakhstan')
+    .then(renderCountryCard)
+        .catch(error => 
+            console.log(error)
+        )
+ }
+
+
+// refs.list.insertAdjacentHTML('beforeend', )
 // const countryCardMarkup
 // const countryListMarkup
 // const DEBOUNCE_DELAY = 300;
