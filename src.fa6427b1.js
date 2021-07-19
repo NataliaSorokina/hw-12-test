@@ -10,7 +10,7 @@ var t,e=arguments[3];!function(e,i){"function"==typeof t&&t.amd?t([],function(){
 },{}],"VyiV":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e={input:document.querySelector("#search-box"),list:document.querySelector(".country-list"),card:document.querySelector(".country-info")};exports.default=e;
 },{}],"hC31":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;const e="https://restcountries.eu/rest/v2";function t(t){return fetch(`${e}/name/${t}?fields=flag;name;capital;population;languages`).then(e=>{if(console.log(e),!e.ok)throw new Error(e.status);return e.json()})}var o={fetchCountries:t};exports.default=o;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;const e="https://restcountries.eu/rest/v2",t="fields=flag;name;capital;population;languages";function o(o){return fetch(`${e}/name/${o}?${t}`).then(e=>{if(console.log(e),!e.ok)throw new Error(e.status);return e.json()})}var r={fetchCountries:o};exports.default=r;
 },{}],"pAws":[function(require,module,exports) {
 var define;
 var global = arguments[3];
@@ -22,4 +22,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"handlebars/dist/handlebars.runtime":"pAws"}],"Focm":[function(require,module,exports) {
 "use strict";require("./css/styles.css");var e=s(require("lodash.debounce")),t=s(require("notiflix")),n=s(require("./js/refs.js")),u=s(require("./js/api-service")),i=s(require("./templates/country-card.hbs")),r=s(require("./templates/country-list.hbs"));function s(e){return e&&e.__esModule?e:{default:e}}const a=300;function l(e){if(n.default.card.innerHTML="",n.default.list.innerHTML="",1===e.length){const t=(0,i.default)(e);n.default.card.innerHTML=t}else if(e.length>=2&&e.length<=10){const t=(0,r.default)(e);n.default.list.innerHTML=t}else e.length>10&&t.default.Notify.info("Too many matches found. Please enter a more specific name.")}function f(e){t.default.Notify.failure("Oops, there is no country with that name")}function c(e){e.preventDefault;let t=n.default.input.value;""!==t&&u.default.fetchCountries(t).then(l).catch(f)}n.default.input.addEventListener("input",(0,e.default)(c,300));
 },{"./css/styles.css":"krre","lodash.debounce":"PZFh","notiflix":"xeAG","./js/refs.js":"VyiV","./js/api-service":"hC31","./templates/country-card.hbs":"DRrH","./templates/country-list.hbs":"htiI"}]},{},["Focm"], null)
-//# sourceMappingURL=/parcel-project-template/src.14fd3503.js.map
+//# sourceMappingURL=/hw-12-test/src.fa6427b1.js.map
