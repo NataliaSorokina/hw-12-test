@@ -10,9 +10,10 @@
 // export { fetchCountries };
 
 const BASE_URL = 'https://restcountries.eu/rest/v2';
+const FILTER = 'fields=flag;name;capital;population;languages'
 
 function fetchCountries(name) {
-    const url = `${BASE_URL}/name/${name}?fields=flag;name;capital;population;languages`;
+    const url = `${BASE_URL}/name/${name}?${FILTER}`;
    return  fetch(url)
        .then(response => {
            console.log(response);
