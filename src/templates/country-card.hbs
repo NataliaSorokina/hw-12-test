@@ -1,35 +1,14 @@
-{{!-- <div class="country-title">
-    <img src="{{flag}}" alt="{{name}}" class="country-flag">
-    <h2 class="country-name">{{name}}</h2>
-</div>
-<div class="country-description">
-    <p class="country-text">Capital: {{capital}}</p>
-    <p class="country-text">Population: {{population}}</p>
-    <ul class="languages-group">Languages:</ul>
-    {{#each languages}}
-    <li class="list-group-item">{{languages.name}}</li>
-    {{/each}}
-    </ul>
-    {{!-- <p class="country-text">Languages: {{languages.name}}</p>
-</div> --}}
-
-
-{{!-- {{#each this}} --}}
-{{!-- <div class="card"> --}}
-    <div class="card-img-top">
-        <img src="{{flag}}" alt="{{name}}">
+{{#each this}}
+    <div class="card-img">
+        <img src="{{flag}}" alt="{{name}}" class="card-img">
     </div>
     <div class="card-body">
-        <h2 class="card-title">Name: {{name}}</h2>
+        <h2 class="card-title">{{name}}</h2>
         <p class="card-text">Capital: {{capital}}</p>
         <p class="card-text">Population: {{population}}</p>
-
-        <p class="card-text"><b>Languages</b></p>
-        <ul class="list-group">
-        {{#each languages}}
-        <li class="list-group-item">{{name}}</li>
-        {{/each}}
-        </ul>
+        <p class="card-text">Languages: <span>{{#each languages}}{{name}}{{#unless @last}},{{/unless}} {{/each}}</span></p>
     </div>
-{{!-- </div> --}}
-{{!-- {{/each}} --}}
+{{/each}}
+
+
+

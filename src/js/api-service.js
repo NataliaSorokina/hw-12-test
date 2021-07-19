@@ -15,6 +15,7 @@ function fetchCountries(name) {
     const url = `${BASE_URL}/name/${name}?fields=flag;name;capital;population;languages`;
    return  fetch(url)
        .then(response => {
+           console.log(response);
             if (!response.ok) {
       throw new Error(response.status);
     }
